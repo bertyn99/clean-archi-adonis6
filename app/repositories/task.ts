@@ -1,23 +1,26 @@
-import { PortTaskRepository } from '#repositories/ports/base_repository'
+import Task from '#models/task'
+import { PortTaskRepository } from '#repositories/base_repository'
 
 export class TaskRepository implements PortTaskRepository {
-  constructor() {
-    this.taskRepo = {}
+  create(id: any, item: Partial<Task>): Promise<Task> {
+    throw new Error('Method not implemented.')
   }
-
-  async create(data) {
-    return this.taskRepo.create(data)
+  update(id: any, item: Partial<Task>): Promise<Task> {
+    throw new Error('Method not implemented.')
   }
-
-  async update(id, data) {
-    return this.taskRepo.update(id, data)
+  delete(id: any): Promise<Task> {
+    throw new Error('Method not implemented.')
   }
-
-  async delete(id) {
-    return this.taskRepo.delete(id)
+  async findByTitle(title: string): Promise<Task> {
+    throw new Error('Method not implemented.')
   }
-
-  async get(id) {
-    return this.taskRepo.get(id)
+  async findTasksByStatus(completed: boolean): Promise<Task[]> {
+    return Task.findManyBy('isCompleted', completed)
+  }
+  async findById(id: any): Promise<Task | null> {
+    return Task.find(id)
+  }
+  async find(): Promise<Task[]> {
+    return await Task.all()
   }
 }
