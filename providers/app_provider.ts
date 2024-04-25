@@ -11,7 +11,7 @@ export default class AppProvider {
   }
   async setupDependancyInjectionBindings() {
     const TaskRepo = await import('#repositories/task')
-    const { PortTaskRepository } = await import('#repositories/base_repository')
+    const PortTaskRepository = await import('#repositories/interfaces/task_interface')
     const TaskService = await import('#services/task_service')
     this.app.container.bind(PortTaskRepository, () => this.app.container.make(TaskService))
   }

@@ -1,5 +1,5 @@
 import Task from '#models/task'
-import { PortTaskRepository } from '#repositories/base_repository'
+import PortTaskRepository from '#repositories/interfaces/task_interface'
 
 export class TaskRepository implements PortTaskRepository {
   create(id: any, item: Partial<Task>): Promise<Task> {

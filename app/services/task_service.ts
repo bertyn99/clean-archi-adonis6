@@ -1,4 +1,4 @@
-import { PortTaskRepository } from '#repositories/base_repository'
+import { PortTaskRepository } from '#repositories/interfaces/base_repository'
 import { inject } from '@adonisjs/core'
 
 inject()
