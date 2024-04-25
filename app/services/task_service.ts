@@ -1,7 +1,7 @@
 import PortTaskRepository from '#repositories/interfaces/task_interface'
 import { inject } from '@adonisjs/core'
 
-inject()
+@inject()
 export default class TaskService {
   constructor(private taskRepo: PortTaskRepository) {}
 
@@ -14,6 +14,7 @@ export default class TaskService {
   }
 
   async getAll() {
+    console.log('all')
     return this.taskRepo.find()
   }
 
@@ -26,6 +27,7 @@ export default class TaskService {
   }
 
   async getByStatus(status) {
+    console.log('status', status)
     return this.taskRepo.findTasksByStatus(status)
   }
 }

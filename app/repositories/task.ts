@@ -1,7 +1,7 @@
 import Task from '#models/task'
 import PortTaskRepository from '#repositories/interfaces/task_interface'
 
-export class TaskRepository implements PortTaskRepository {
+export default class TaskRepository implements PortTaskRepository {
   create(id: any, item: Partial<Task>): Promise<Task> {
     throw new Error('Method not implemented.')
   }
@@ -21,6 +21,7 @@ export class TaskRepository implements PortTaskRepository {
     return Task.find(id)
   }
   async find(): Promise<Task[]> {
+    console.log('all mais ici')
     return await Task.all()
   }
 }

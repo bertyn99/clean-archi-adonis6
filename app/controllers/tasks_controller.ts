@@ -4,7 +4,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 
 @inject()
 export default class TasksController {
-  constructor(private taskService: TaskService) {}
+  constructor(protected taskService: TaskService) {}
   /**
    * Display a list of resource
    */

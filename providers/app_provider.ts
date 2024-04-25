@@ -1,4 +1,7 @@
 import type { ApplicationService } from '@adonisjs/core/types'
+import PortTaskRepository from '#repositories/interfaces/task_interface'
+import TaskRepository from '#repositories/task'
+import TaskService from '#services/task_service'
 
 export default class AppProvider {
   constructor(protected app: ApplicationService) {}
@@ -10,9 +13,7 @@ export default class AppProvider {
     await this.setupDependancyInjectionBindings()
   }
   async setupDependancyInjectionBindings() {
-    const PortTaskRepository = await import('#repositories/interfaces/task_interface')
-    const TaskService = await import('#services/task_service')
-    this.app.container.bind(PortTaskRepository, () => this.app.container.make(TaskService))
+    this.app.container.bind(PortTaskRepository, () => this.app.container.make(TaskRepository))
   }
 
   /**
