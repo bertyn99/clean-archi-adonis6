@@ -2,7 +2,6 @@ import { PortTaskRepository } from '#repositories/base_repository'
 import { inject } from '@adonisjs/core'
 
 inject()
-
 export default class TaskService {
   constructor(private taskRepo: PortTaskRepository) {}
 
